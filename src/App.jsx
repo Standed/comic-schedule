@@ -4,22 +4,16 @@ import { User, Video, Star, Flag, Zap, MonitorPlay, Mic, Edit, Scissors } from '
 const ScheduleTable = () => {
   // 数据源
   const rows = [
-    { id: 1, date: "12.06", title: "AI漫剧市场分析与课程规划 + 剧本结构", teacher: "西堂、羊羊", tags: ["直播课"] },
-    { id: 2, date: "12.07", title: "角色设定与场景设计", teacher: "羊羊", tags: ["直播课", "课后作业"] },
-    { id: 3, date: "12.09", title: "分镜头基础与视听语言讲解", teacher: "雅平", tags: ["直播课"] },
-    { id: 4, date: "12.11", title: "即梦、Nano Banana 分镜头设计实战", teacher: "皮夹克", tags: ["直播课", "课后作业"] },
-    { id: 5, date: "12.13", title: "PS 基础：光影与蒙版、液化变形、融图调色", teacher: "羊羊", tags: ["直播课"] },
-    { id: 6, date: "12.14", title: "Vidu 视频生成实战：图生视频，参考生视频", teacher: "皮夹克", tags: ["直播课", "课后作业"] },
-    { id: 7, date: "12.17", title: "作业点评与答疑（一）", teacher: "皮夹克", tags: ["作业点评"] },
-    { id: 8, date: "12.18", title: "AI漫剧配音与音效音乐设计全流程", teacher: "阿泷", tags: ["直播课"] },
-    { id: 9, date: "12.20", title: "剪辑入门：基础操作与节奏，转场特效", teacher: "羊羊", tags: ["直播课"] },
-    { id: 10, date: "12.22", title: "剪辑进阶：搞定抠图、蒙版、调色与关键帧", teacher: "羊羊", tags: ["直播课", "课后作业"] },
-    { id: 11, date: "12.26", title: "作业点评与答疑（二）", teacher: "雅平", tags: ["作业点评"] },
-    { id: 12, date: "12.27", title: "AI漫剧预告片案例拆解", teacher: "阿泷", tags: ["案例拆解", "毕业作业启动"], highlight: true },
-    { id: 13, date: "12.29", title: "AI武侠漫剧案例拆解", teacher: "雅平", tags: ["案例拆解"] },
-    { id: 14, date: "01.03", title: "AI漫剧案例拆解", teacher: "皮夹克", tags: ["案例拆解"] },
-    { id: 15, date: "01.04", title: "视频Agent提效专题：Seko、Sora2、N8N等", teacher: "小石学长", tags: ["黑科技专题"] },
-    { id: 16, date: "01.08", title: "公开大作业鉴赏点评与变现指南", teacher: "全体讲师", tags: ["毕业点评", "变现指南"], highlight: true },
+    { id: 1, date: "03.17", title: "AI真人剧市场洞察与全流程实操", teacher: "羊羊", tags: ["直播课"] },
+    { id: 2, date: "03.19", title: "核心资产池构建：写实角色一致性与场景搭建", teacher: "羊羊", tags: ["直播课", "课后作业"] },
+    { id: 3, date: "03.21", title: "视频模型实战：Seedance 2.0/Vidu Q3/可灵3.0 Omni", teacher: "羊羊/阿泷", tags: ["直播课"] },
+    { id: 4, date: "03.23", title: "分镜的精细化控制：即梦、MJ、Nano Banana实战", teacher: "羊羊/阿泷", tags: ["直播课", "课后作业"] },
+    { id: 5, date: "03.25", title: "半程直播答疑", teacher: "羊羊/阿泷", tags: ["作业点评"] },
+    { id: 6, date: "03.26", title: "声音设计：配音、音效、音乐生成与混音技巧", teacher: "阿泷/雅平", tags: ["直播课"] },
+    { id: 7, date: "03.28", title: "剪辑实战：素材的无缝衔接与剪辑节奏的掌控", teacher: "羊羊", tags: ["直播课", "课后作业"] },
+    { id: 8, date: "03.30", title: "真人影视级视听语言核心讲解", teacher: "雅平", tags: ["直播课"] },
+    { id: 9, date: "04.01", title: "AI真人短剧案例拆解", teacher: "阿泷", tags: ["案例拆解", "毕业作业启动"], highlight: true },
+    { id: 10, date: "04.10", title: "公开大作业鉴赏点评", teacher: "阿泷/羊羊/雅平", tags: ["毕业点评", "变现指南"], highlight: true },
   ];
 
   // 标签样式映射
@@ -51,11 +45,11 @@ const ScheduleTable = () => {
         <div className="relative z-10 px-8 py-8 flex justify-between items-end border-b border-gray-800/50 bg-[#09101F]/50 backdrop-blur-sm">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="px-2 py-1 rounded bg-blue-500 text-white text-xs font-bold tracking-widest">BOOTCAMP</span>
-              <span className="text-blue-400 text-sm font-semibold tracking-wider">2025.12 - 2026.01</span>
+              <span className="px-2 py-1 rounded bg-blue-500 text-white text-xs font-bold tracking-widest">TRAINING CAMP</span>
+              <span className="text-blue-400 text-sm font-semibold tracking-wider">2026.03 - 2026.04</span>
             </div>
             <h1 className="text-4xl font-extrabold text-white tracking-tight">
-              AI漫剧实战特训营 <span className="text-gray-600 font-light mx-2">|</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">第一期课表</span>
+              AI真人短剧训练营 <span className="text-gray-600 font-light mx-2">|</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">课程安排</span>
             </h1>
           </div>
 
@@ -70,7 +64,7 @@ const ScheduleTable = () => {
                    // 移除 crossOrigin，避免因跨域头缺失导致图片加载被拦截
                  />
              </div>
-             <div className="text-xs text-gray-500 font-medium tracking-widest">西羊石 AI 漫剧</div>
+             <div className="text-xs text-gray-500 font-medium tracking-widest">西羊石 AI真人短剧</div>
           </div>
         </div>
 
