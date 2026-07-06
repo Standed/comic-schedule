@@ -1,16 +1,66 @@
-# React + Vite
+# 西羊石课程海报生成器
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+把课程大纲 Markdown 粘贴进去，就能生成西羊石同款课程安排海报，并下载 PNG。
 
-Currently, two official plugins are available:
+## 在线使用
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+GitHub Pages 地址：
 
-## React Compiler
+```text
+https://standed.github.io/comic-schedule/
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 输入格式
 
-## Expanding the ESLint configuration
+支持这样的课程大纲：
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```markdown
+# AI影视美学拉片训练营｜课程安排
+
+## 2026.07 - 2026.08
+
+| #  | 日期    | 课程主题 | 讲师 | 类型 / 说明 |
+| -- | ----- | ------- | ---- | ---------- |
+| 01 | 07.20 | 拉片认知：AI影视创作的专业镜头判断力建立 | 泡泡柱 | 直播课 |
+| 02 | 07.21 | 作业日：选择一支影视/广告片段，完成初步观察记录 | - | 课后作业 |
+| 03 | 07.22 | 镜头基础：景别、构图、焦段与画面情绪控制 | 泡泡柱 | 直播课 |
+
+## 课程交付说明
+
+全程直播 + 录屏回放 + 社群答疑 + 作业点评
+8节核心直播课，围绕影视审美、专业拉片、AI生成与成片实操展开
+最终完成一份拉片拆解方案与一支AI影视实战作品
+```
+
+解析规则：
+
+- 一级标题里 `｜课程安排` 前面的文字会作为海报标题。
+- `2026.07 - 2026.08` 这种日期范围会显示在左上角。
+- Markdown 表格需要包含 `# / 日期 / 课程主题 / 讲师 / 类型 / 说明` 五列。
+- 类型支持 `直播课`、`课后作业`、`作业提交`、`作业点评`、`毕业点评`；多个类型可用 `/`、`、`、`,` 分隔。
+- `课程交付说明` 下的文字会自动进入海报底部。
+
+## 本地开发
+
+```bash
+npm install
+npm run dev
+```
+
+## 构建
+
+```bash
+npm run build
+```
+
+## 部署
+
+维护者可以运行：
+
+```bash
+npm run deploy
+```
+
+这个命令会构建项目，并把 `dist` 发布到 `gh-pages` 分支。
+
+如果第一次启用 Pages，需要在 GitHub 仓库的 Settings -> Pages 中选择 `gh-pages` 分支作为部署来源。

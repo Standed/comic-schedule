@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI影视美学拉片训练营课程安排</title>
+    <style>
+      :root {
+        --line: rgba(148, 163, 184, 0.14);
+        --line-strong: rgba(148, 163, 184, 0.22);
+        --text: #f7f9ff;
+        --body: #e7ebf3;
+        --muted: #758298;
+        --blue: #60a5ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #111827;
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+
+      .poster {
+        width: 1149px;
+        height: 1148px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 6px;
+        background:
+          radial-gradient(circle at 79% 30%, rgba(35, 96, 194, 0.24), transparent 24%),
+          radial-gradient(circle at 13% 82%, rgba(109, 67, 206, 0.2), transparent 22%),
+          linear-gradient(155deg, #080d1a 0%, #091126 58%, #080b19 100%);
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px) 0 0 / 72px 72px,
+          linear-gradient(0deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) 0 0 / 72px 72px;
+        pointer-events: none;
+      }
+
+      .header {
+        position: relative;
+        z-index: 1;
+        height: 167px;
+        padding: 58px 30px 0;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 23px;
+        margin-bottom: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        height: 23px;
+        padding: 0 10px;
+        border-radius: 4px;
+        background: #3b82f6;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.11em;
+      }
+
+      .range {
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 38px;
+        line-height: 1.05;
+        font-weight: 950;
+        letter-spacing: 0;
+        color: #fff;
+      }
+
+      .divider {
+        color: rgba(148, 163, 184, 0.52);
+        margin: 0 12px;
+        font-weight: 400;
+      }
+
+      .gradient {
+        background: linear-gradient(90deg, #62a7ff 0%, #bb73ff 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .logo-wrap {
+        position: absolute;
+        right: 31px;
+        top: 30px;
+        width: 116px;
+        text-align: center;
+      }
+
+      .logo-circle {
+        width: 84px;
+        height: 84px;
+        margin-left: auto;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.32);
+        background: rgba(4, 8, 18, 0.72);
+        display: grid;
+        place-items: center;
+        overflow: visible;
+      }
+
+      .logo-circle img {
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        margin-top: 10px;
+        color: rgba(148, 163, 184, 0.72);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+      }
+
+      .table {
+        position: relative;
+        z-index: 1;
+        height: 935px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+
+      .thead,
+      .row {
+        display: grid;
+        grid-template-columns: 64px 128px 1fr 160px 187px;
+        align-items: center;
+      }
+
+      .thead {
+        height: 49px;
+        background: rgba(16, 24, 42, 0.98);
+        color: rgba(148, 163, 184, 0.75);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .cell {
+        padding: 0 26px;
+        min-width: 0;
+      }
+
+      .row {
+        height: 52px;
+        border-top: 1px solid var(--line);
+        background: rgba(8, 14, 28, 0.62);
+      }
+
+      .row.live {
+        background: linear-gradient(90deg, rgba(14, 32, 60, 0.54), rgba(9, 17, 35, 0.66));
+      }
+
+      .row.homework {
+        background: rgba(11, 14, 28, 0.66);
+      }
+
+      .row.focus {
+        background: linear-gradient(90deg, rgba(38, 43, 96, 0.72), rgba(9, 17, 35, 0.68));
+      }
+
+      .row.final {
+        background: linear-gradient(90deg, rgba(34, 43, 73, 0.78), rgba(9, 17, 35, 0.72));
+      }
+
+      .num {
+        color: rgba(117, 130, 152, 0.66);
+        font: 500 15px/1 "SFMono-Regular", Menlo, Consolas, monospace;
+      }
+
+      .date {
+        color: var(--blue);
+        font: 900 17px/1 "SFMono-Regular", Menlo, Consolas, monospace;
+        letter-spacing: 0.04em;
+      }
+
+      .topic {
+        color: var(--body);
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .teacher {
+        color: rgba(226, 232, 240, 0.78);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .tags {
+        display: flex;
+        justify-content: flex-end;
+        gap: 9px;
+        padding-right: 28px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 55px;
+        height: 23px;
+        padding: 0 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .tag.live {
+        color: #dbeafe;
+        background: rgba(37, 99, 235, 0.34);
+        border: 1px solid rgba(96, 165, 250, 0.6);
+      }
+
+      .tag.homework {
+        color: #fed7aa;
+        background: rgba(154, 76, 20, 0.34);
+        border: 1px solid rgba(249, 115, 22, 0.6);
+      }
+
+      .tag.submit {
+        color: #fbcfe8;
+        background: rgba(157, 23, 77, 0.34);
+        border: 1px solid rgba(236, 72, 153, 0.58);
+      }
+
+      .tag.final {
+        color: #fef3c7;
+        background: rgba(133, 77, 14, 0.42);
+        border: 1px solid rgba(234, 179, 8, 0.68);
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 31px;
+        background: rgba(18, 25, 50, 0.78);
+        color: rgba(148, 163, 184, 0.75);
+        font-size: 12px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="poster">
+      <header class="header">
+        <div class="meta">
+          <span class="pill">TRAINING CAMP</span>
+          <span class="range">2026.07 - 2026.08</span>
+        </div>
+        <h1>AI影视美学拉片训练营<span class="divider">|</span><span class="gradient">课程安排</span></h1>
+        <div class="logo-wrap">
+          <div class="logo-circle">
+            <img src="https://storage.googleapis.com/n8n-bucket-xys/%E7%AB%96%E7%89%88logo%E9%80%8F%E6%98%8E%E5%BA%95.png" alt="西羊石" />
+          </div>
+          <div class="logo-text">西羊石 AI影视美学</div>
+        </div>
+      </header>
+
+      <section class="table">
+        <div class="thead">
+          <div class="cell">#</div>
+          <div class="cell">日期</div>
+          <div class="cell">课程主题</div>
+          <div class="cell">讲师</div>
+          <div class="cell">类型 / 说明</div>
+        </div>
+        <div class="row live"><div class="cell num">01</div><div class="cell date">07.20</div><div class="cell topic">拉片认知：AI影视创作的专业镜头判断力建立</div><div class="cell teacher">泡泡柱</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">02</div><div class="cell date">07.21</div><div class="cell topic">作业日：选择一支影视/广告片段，完成初步观察记录</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">03</div><div class="cell date">07.22</div><div class="cell topic">镜头基础：景别、构图、焦段与画面情绪控制</div><div class="cell teacher">泡泡柱</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">04</div><div class="cell date">07.23</div><div class="cell topic">作业日：截图拆解3-5个镜头，分析景别、构图与情绪作用</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">05</div><div class="cell date">07.24</div><div class="cell topic">镜头语言：运镜、调度与视觉叙事表达</div><div class="cell teacher">泡泡柱</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">06</div><div class="cell date">07.25</div><div class="cell topic">作业日：拆解一段30秒片段的运镜、调度与叙事功能</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">07</div><div class="cell date">07.26</div><div class="cell topic">拉片实战：商业广告与剧情短片的专业拆解方法</div><div class="cell teacher">泡泡柱</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">08</div><div class="cell date">07.27</div><div class="cell topic">作业日：完成一份1分钟影视/广告片段拉片表</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">09</div><div class="cell date">07.28</div><div class="cell topic">声音设计：音效、环境音与情绪节奏搭建</div><div class="cell teacher">泡泡柱</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">10</div><div class="cell date">07.29</div><div class="cell topic">作业日：拆解片段中的音乐、环境音、音效与节奏变化</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">11</div><div class="cell date">07.30</div><div class="cell topic">AI生成：资产图设计与动态视频生成工作流</div><div class="cell teacher">雅平</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">12</div><div class="cell date">07.31</div><div class="cell topic">作业日：根据拉片方案设计人物、场景与风格资产图</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live"><div class="cell num">13</div><div class="cell date">08.01</div><div class="cell topic">镜头组接：剪辑思维建立与剪映初级到进阶玩法</div><div class="cell teacher">雅平</div><div class="tags"><span class="tag live">直播课</span></div></div>
+        <div class="row homework"><div class="cell num">14</div><div class="cell date">08.02</div><div class="cell topic">作业日：生成3-5个AI视频镜头，并完成初步镜头组接</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row live focus"><div class="cell num">15</div><div class="cell date">08.04</div><div class="cell topic">案例实操：从0到1完成一支AI影片制作流程</div><div class="cell teacher">雅平</div><div class="tags"><span class="tag live">直播课</span><span class="tag submit">作业提交</span></div></div>
+        <div class="row homework"><div class="cell num">16</div><div class="cell date">08.05</div><div class="cell topic">结课大作业：整合拉片方案与AI生成素材，完成并提交AI影视作品</div><div class="cell teacher"></div><div class="tags"><span class="tag homework">课后作业</span></div></div>
+        <div class="row final"><div class="cell num">17</div><div class="cell date">08.12</div><div class="cell topic">结营直播：学员作品展示、导师点评与后续提升路径</div><div class="cell teacher">全体讲师</div><div class="tags"><span class="tag final">毕业点评</span></div></div>
+      </section>
+
+      <footer class="footer">
+        <div>全程直播 + 录屏回放 + 社群答疑 + 作业点评 · 8节核心直播课</div>
+        <div>* 最终完成拉片拆解方案与AI影视实战作品</div>
+      </footer>
+    </main>
+  </body>
+</html>
